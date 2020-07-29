@@ -2,48 +2,41 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-
-int main()
-{
+int main(){
     int n,m;
+
+    cout << "Enter order of matrix ";
     cin>>m>>n;
-    bool a[m][n];
-    for(int i=0; i<m; i++)
-        for(int j=0; j<n; j++)
-              cin>>a[i][j];
+    int a[m][n];
+    int b[m][n];
 
- for(int i=0; i<m; i++)
-       {
-           for(int j=0; j<n; j++)
-        {
-            if(a[i][j] == 0)
-                {
-                    for(int k=0;k<n;k++)
-                    a[i][k]=0;
+    cout << "Enter elements in array : ";
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cin>>a[i][j];
+            b[i][j]=a[i][j];
+        }
+    }
+    cout<<endl;
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            if(a[i][j]==0){
+                for(int k=0;k<n;k++){
+                    b[i][k]=0;
                 }
-
-       }
-       }
-
-       for(int j=0; j<n; j++)
-       {
-           for(int i=0; i<m; i++)
-        {
-            if(a[i][j] == 0)
-                {
-                    for(int k=0;k<n;k++)
-                    a[i][k]=0;
-
-                    for(int k=0;k<m;k++)
-                    a[k][j]=0;
+                for(int k=0;k<m;k++){
+                    b[k][j]=0;
                 }
+            }
+        }
+    }
+    cout << "Result : "<< endl;
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            cout<<b[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 
-       }
-       }
 
-    for(int i=0; i<n; i++)
-        {for(int j=0; j<n; j++)
-              cout<<a[i][j]<<" ";
-              cout<<endl;}
-return 0;
 }
